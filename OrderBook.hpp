@@ -2,6 +2,7 @@
 
 #include "Order.hpp"
 #include "Transaction.hpp"
+#include "System.hpp"
 
 #ifndef ORDERBOOK_HPP
 #define ORDERBOOK_HPP
@@ -10,8 +11,8 @@ class OrderBook {
 
 private:
 
-    // Estruturas internas escolhidas pelos alunos
-    // para armazenar ordens de compra, venda e transações
+    int num_orders;
+    DoubleLinkedList system;
 
 public:
 
