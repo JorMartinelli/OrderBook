@@ -1,4 +1,5 @@
 #include "Order.hpp"
+#include "Transaction.hpp"
 
 #ifndef SYSTEM_HPP
 #define SYSTEM_HPP
@@ -17,15 +18,37 @@ private:
     Node* head;
     Node* tail;
     int size;
+    bool sortDescending;
 
 public:
-    DoubleLinkedList();
-    void insert(Order order);
+    DoubleLinkedList(bool sortDescending = true);
+    void insertSorted(Order order);
     void removeFront();
     void removeEnd();
     void remove(Order order);
     int getSize();
     Order* getOrdersArray();
+    Order getFront();
+};
+
+class TransactionNode{
+public:
+    Transaction transaction;
+    TransactionNode* next;
+
+    TransactionNode(Transaction transaction);
+};
+
+class TransactionList {
+private:
+    TransactionNode* tail;
+    TransactionNode* head;
+public:
+    TransactionList();
+    void addTransaction(Transaction transaction);
+    void printTransactions();
+    int getSize();  
+    Transaction* getTransactionsArray();
 };
 
 #endif

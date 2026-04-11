@@ -12,7 +12,9 @@ class OrderBook {
 private:
 
     int num_orders;
-    DoubleLinkedList system;
+    DoubleLinkedList buy_orders;
+    DoubleLinkedList sell_orders;
+    TransactionList transactions;
 
 public:
 
@@ -30,7 +32,6 @@ public:
     void printSellOrders();
     void printTransactions();
 
-    // Outros métodos auxiliares, se necessário
 };
 
 #endif
