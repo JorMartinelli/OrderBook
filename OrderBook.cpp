@@ -4,9 +4,11 @@
 #include "OrderBook.hpp"
 #include "Transaction.hpp"
 
+// buy_orders(true): lista de compras ordenada de forma decrescente
+// sell_orders(false): lista de vendas ordenada de forma crescente
 OrderBook::OrderBook(): buy_orders(true), sell_orders(false) {
     this -> num_orders = 0;
-}
+} 
 
 OrderBook::~OrderBook(){
 

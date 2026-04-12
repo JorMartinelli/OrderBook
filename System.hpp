@@ -6,19 +6,19 @@
 
 class Node {
 public:
-    Order order;
+    Order order; // para criação da lista duplamente encadeada de Order
     Node* next;
     Node* prev;
 
     Node(Order order);
 };
 
-class DoubleLinkedList {
+class DoubleLinkedList { 
 private:
     Node* head;
     Node* tail;
     int size;
-    bool sortDescending;
+    bool sortDescending; // permite inserção ordenada por preço
 
 public:
     DoubleLinkedList(bool sortDescending = true);
@@ -29,6 +29,7 @@ public:
     int getSize();
     Order* getOrdersArray();
     Order getFront();
+    ~DoubleLinkedList();
 };
 
 class TransactionNode{
@@ -49,6 +50,7 @@ public:
     void printTransactions();
     int getSize();  
     Transaction* getTransactionsArray();
+    ~TransactionList();
 };
 
 #endif

@@ -27,7 +27,8 @@ void DoubleLinkedList::insertSorted(Order order){
     int timestamp = order.getTimestamp();
     Node* current = head;
 
-
+    // verificamos a posição certa para inserir
+    // para compras o preço maior vem primeiro e para vendas o menor
     while (current != nullptr) {
         bool InsertBefore = false;
         if (this -> sortDescending) {
@@ -140,6 +141,7 @@ int DoubleLinkedList::getSize(){
     return this -> size;
 }
 
+// para criar cópia da lista como array
 Order* DoubleLinkedList::getOrdersArray() {
 
     if (size == 0) {
@@ -215,4 +217,19 @@ Transaction* TransactionList::getTransactionsArray() {
         count++;
     }
     return arr;
+}
+
+DoubleLinkedList::~DoubleLinkedList() {
+    while (head != nullptr) {
+        removeFront(); 
+    }
+}
+
+TransactionList::~TransactionList() {
+    TransactionNode* current = head;
+    while (current != nullptr) {
+        TransactionNode* nextNode = current -> next; 
+        delete current;                           
+        current = nextNode;                       
+    }
 }
